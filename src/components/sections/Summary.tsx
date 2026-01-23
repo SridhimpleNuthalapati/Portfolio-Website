@@ -94,7 +94,7 @@ export const Summary = () => {
                   <ExternalLink size={14} className="external-icon" />
                 </motion.a>
                 <motion.a
-                  href="https://medium.com/@sridhimple"
+                  href="https://medium.com/@sridhimplenuthalapati"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="social-link"
