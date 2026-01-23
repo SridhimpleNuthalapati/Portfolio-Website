@@ -71,7 +71,7 @@ export const personalInfo: PersonalInfo = {
   email: "Sridhimplenuthalapati@gmail.com",
   phone: "+1 (314)-327-0742",
   linkedin: "linkedin.com/in/sridhimple-nuthalapati",
-  github: "github.com/sridhimple",
+  github: "github.com/SridhimpleNuthalapati",
 };
 
 export const summary: SummaryItem[] = [
