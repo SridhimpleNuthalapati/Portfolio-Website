@@ -297,9 +297,9 @@ export const projects: Project[] = [
   {
     title: "Customer Segmentation System",
     description: "An intelligent customer segmentation platform using machine learning algorithms to categorize customers based on behavior and preferences. Enables targeted marketing strategies and personalized experiences.",
-    technologies: ["Angular", "Spring Boot", "PostgreSQL", "Docker"],
-    demoUrl: "#",
-    codeUrl: "#",
+    technologies: ["Python", "Streamlit", "Scikit-learn", "Machine Learning"],
+    demoUrl: "https://customer-segmentation-system-dyh997iusci9njgq5hefxn.streamlit.app/",
+    codeUrl: "https://github.com/SridhimpleNuthalapati/Customer-Segmentation-System/tree/main",
     image: "/customer.jpg.avif",
   },
   {

@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Github } from 'lucide-react';
+import { Github, ExternalLink } from 'lucide-react';
 import { projects } from '../../data/content';
 
 // Define vibrant gradients for each card
@@ -175,37 +175,201 @@ export const Projects = () => {
                       ))}
                     </div>
 
-                    {/* GitHub Button */}
-                    <motion.a
-                      href={project.codeUrl || '#'}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="relative w-full px-6 py-2.5 rounded-lg font-semibold text-white overflow-hidden group shadow-md flex items-center justify-center"
-                      style={{
-                        background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-                        fontSize: '0.95rem',
-                        fontWeight: 600,
-                      }}
-                      whileHover={{
-                        y: -2,
-                        scale: 1.05,
-                        boxShadow: '0 8px 20px rgba(102, 126, 234, 0.3)',
-                        transition: {
-                          duration: 0.3,
-                          ease: 'easeInOut',
-                        },
-                      }}
-                      whileTap={{
-                        scale: 0.95,
-                        transition: { duration: 0.1 },
-                      }}
-                    >
-                      {/* Content */}
-                      <span className="relative z-10 flex items-center gap-2">
-                        <Github size={18} />
-                        GitHub
-                      </span>
-                    </motion.a>
+                    {/* Action Buttons - Both GitHub and Live Demo */}
+                    <div className="flex gap-3">
+                      {/* GitHub Button */}
+                      <motion.a
+                        href={project.codeUrl || '#'}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="relative flex-1 px-4 py-2.5 rounded-lg font-semibold text-white overflow-hidden group shadow-md flex items-center justify-center"
+                        style={{
+                          background: 'linear-gradient(90deg, #2563eb, #9333ea, #ec4899, #2563eb)',
+                          backgroundSize: '200% 100%',
+                          transformOrigin: 'center',
+                          fontSize: '0.9rem',
+                          fontWeight: 600,
+                        }}
+                        animate={{
+                          backgroundPosition: ['0% 50%', '200% 50%', '0% 50%'],
+                        }}
+                        transition={{
+                          duration: 4,
+                          repeat: Infinity,
+                          ease: 'linear',
+                        }}
+                        whileHover={{
+                          scale: 1.05,
+                          filter: 'brightness(1.1)',
+                          transition: {
+                            duration: 0.3,
+                            ease: 'easeInOut',
+                          },
+                        }}
+                        whileTap={{
+                          scale: 0.95,
+                          transition: { duration: 0.1 },
+                        }}
+                      >
+                        {/* Pulsing Glow Effect */}
+                        <motion.div
+                          className="absolute inset-0 rounded-lg blur-xl opacity-0"
+                          style={{
+                            background: 'linear-gradient(90deg, #2563eb, #9333ea, #ec4899)',
+                          }}
+                          animate={{
+                            opacity: [0, 0.6, 0],
+                          }}
+                          transition={{
+                            duration: 2,
+                            repeat: Infinity,
+                            ease: 'easeInOut',
+                          }}
+                        />
+                        
+                        {/* Hover Glow Effect */}
+                        <motion.div
+                          className="absolute -inset-2 rounded-lg blur-xl opacity-0 pointer-events-none group-hover:opacity-70"
+                          style={{
+                            background: 'linear-gradient(90deg, #2563eb, #9333ea, #ec4899)',
+                            boxShadow: '0 0 30px rgba(147, 51, 234, 0.5)',
+                          }}
+                          transition={{
+                            duration: 0.3,
+                            ease: 'easeInOut',
+                          }}
+                        />
+                        
+                        {/* Shimmer/Shine Effect */}
+                        <motion.div
+                          className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent"
+                          initial={{ x: '-100%' }}
+                          whileHover={{
+                            x: '100%',
+                            transition: {
+                              duration: 0.6,
+                              ease: 'easeInOut',
+                            },
+                          }}
+                        />
+                        
+                        {/* Content */}
+                        <span className="relative z-10 flex items-center gap-2">
+                          <Github size={16} />
+                          <span className="hidden sm:inline">GitHub</span>
+                        </span>
+                      </motion.a>
+                      
+                      {/* Live Demo Button */}
+                      <motion.a
+                        href={project.demoUrl && project.demoUrl !== '#' ? project.demoUrl : '#'}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`relative flex-1 px-4 py-2.5 rounded-lg font-semibold text-white overflow-hidden group shadow-md flex items-center justify-center ${
+                          project.demoUrl && project.demoUrl !== '#' ? '' : 'opacity-50 cursor-not-allowed pointer-events-none'
+                        }`}
+                        style={{
+                          background: project.demoUrl && project.demoUrl !== '#' 
+                            ? 'linear-gradient(90deg, #10b981, #059669, #047857, #10b981)'
+                            : 'linear-gradient(90deg, #6b7280, #4b5563, #374151, #6b7280)',
+                          backgroundSize: '200% 100%',
+                          transformOrigin: 'center',
+                          fontSize: '0.9rem',
+                          fontWeight: 600,
+                        }}
+                        animate={
+                          project.demoUrl && project.demoUrl !== '#'
+                            ? {
+                                backgroundPosition: ['0% 50%', '200% 50%', '0% 50%'],
+                              }
+                            : {}
+                        }
+                        transition={{
+                          duration: 4,
+                          repeat: Infinity,
+                          ease: 'linear',
+                        }}
+                        whileHover={
+                          project.demoUrl && project.demoUrl !== '#'
+                            ? {
+                                scale: 1.05,
+                                filter: 'brightness(1.1)',
+                                transition: {
+                                  duration: 0.3,
+                                  ease: 'easeInOut',
+                                },
+                              }
+                            : {}
+                        }
+                        whileTap={
+                          project.demoUrl && project.demoUrl !== '#'
+                            ? {
+                                scale: 0.95,
+                                transition: { duration: 0.1 },
+                              }
+                            : {}
+                        }
+                        onClick={(e) => {
+                          if (!project.demoUrl || project.demoUrl === '#') {
+                            e.preventDefault();
+                          }
+                        }}
+                      >
+                        {/* Pulsing Glow Effect */}
+                        {project.demoUrl && project.demoUrl !== '#' && (
+                          <motion.div
+                            className="absolute inset-0 rounded-lg blur-xl opacity-0"
+                            style={{
+                              background: 'linear-gradient(90deg, #10b981, #059669, #047857)',
+                            }}
+                            animate={{
+                              opacity: [0, 0.6, 0],
+                            }}
+                            transition={{
+                              duration: 2,
+                              repeat: Infinity,
+                              ease: 'easeInOut',
+                            }}
+                          />
+                        )}
+                        
+                        {/* Hover Glow Effect */}
+                        {project.demoUrl && project.demoUrl !== '#' && (
+                          <motion.div
+                            className="absolute -inset-2 rounded-lg blur-xl opacity-0 pointer-events-none group-hover:opacity-70"
+                            style={{
+                              background: 'linear-gradient(90deg, #10b981, #059669, #047857)',
+                              boxShadow: '0 0 30px rgba(16, 185, 129, 0.5)',
+                            }}
+                            transition={{
+                              duration: 0.3,
+                              ease: 'easeInOut',
+                            }}
+                          />
+                        )}
+                        
+                        {/* Shimmer/Shine Effect */}
+                        {project.demoUrl && project.demoUrl !== '#' && (
+                          <motion.div
+                            className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent"
+                            initial={{ x: '-100%' }}
+                            whileHover={{
+                              x: '100%',
+                              transition: {
+                                duration: 0.6,
+                                ease: 'easeInOut',
+                              },
+                            }}
+                          />
+                        )}
+                        
+                        {/* Content */}
+                        <span className="relative z-10 flex items-center gap-2">
+                          <ExternalLink size={16} />
+                          <span className="hidden sm:inline">Live Demo</span>
+                        </span>
+                      </motion.a>
+                    </div>
                   </div>
                 </motion.div>
               </motion.div>
