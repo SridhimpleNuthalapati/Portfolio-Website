@@ -68,7 +68,7 @@ export const personalInfo: PersonalInfo = {
   title: "Senior Fullstack Developer | Software Engineer",
   subtitle: "Senior Fullstack Developer | Software Engineer",
   description: "Senior Software Developer specializing in enterprise Java Spring Boot microservices and modern JavaScript frameworks. Delivered cloud-native applications across telecom, financial, and federal sectors with expertise in distributed systems, Kafka event streaming, and production-grade observability.",
-  email: "Sridhimplenuthalapati@gmail.com",
+  email: "sridhimplen03@gmail.com",
   phone: "+1 (314) 224-2814",
   linkedin: "linkedin.com/in/sridhimple-nuthalapati",
   github: "github.com/SridhimpleNuthalapati",
